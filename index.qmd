@@ -1,0 +1,556 @@
+---
+title: "Apresentação de resultados com R"
+subtitle: "Universidade Federal de São Paulo (UNIFESP)"
+author: "[Beatriz Milz](https://beamilz.com) <br> [R-Ladies São Paulo](https://rladies-sp.org)"
+format: 
+  rladies-revealjs:
+    footer: ""
+incremental: false
+code-link: true
+---
+
+# Sobre essa apresentação
+
+-   O que é a R-Ladies SP?
+
+-   Quem sou eu?
+
+-   Compartilhando resultados
+
+-   Quarto: o que é, quais as vantagens e desvantagens, como dar os primeiros passos.
+
+-   Exemplos de uso do Quarto
+
+-   Links para saber mais
+
+# R-Ladies São Paulo
+
+![](https://rladies.org/blog/2023-06-05-increasing-diversity-sao-paulo/logo.png){fig-align="center"}
+
+## R-Ladies São Paulo
+
+-   R-Ladies é uma organização **mundial** cuja missão é promover a diversidade de gênero na comunidade da linguagem R.
+
+-   [R-Ladies São Paulo](https://rladies-sp.org) faz parte da [R-Ladies Global](https://rladies.org).
+
+-   Nosso principal objetivo é promover a linguagem R, com foco na participação pessoas que se identificam com gêneros sub-representados na comunidade R, portanto: mulheres cis, mulheres trans, homens trans, pessoas não-binárias e queer.
+
+-   É apoiada financeiramente pela [R Consortium](https://www.r-consortium.org/all-projects/call-for-proposals#Rstats) (em parceria com a [Linux Foundation](https://www.linuxfoundation.org/projects)).
+
+## Blog: [rladies-sp.org](https://rladies-sp.org/)
+
+-   Textos escritos por pessoas da comunidade
+
+<center>
+
+<embed type="text/html" src="https://rladies-sp.org/" width="90%" height="400">
+
+</center>
+
+-   Recomendo também esse texto: [Actions to increase diversity in the R-Ladies São Paulo community](https://rladies.org/blog/2023-06-05-increasing-diversity-sao-paulo/)
+
+# Quem sou eu?
+
+## Beatriz Milz
+
+-   Co-organizadora da [R-Ladies São Paulo](https://rladies-sp.org)
+
+- Equipe da secretaria executiva da [Revista Ambiente & Sociedade](https://www.scielo.br/journal/asoc/about/)
+
+- Software peer review editor da [rOpenSci](https://ropensci.org/)
+
+-   Formação acadêmica:
+
+    -   Graduação: Gestão Ambiental - EACH/USP
+    -   Mestrado: PPG-Análise Ambiental Integrada - UNIFESP Diadema
+    -   Doutorado: PPG Ciência Ambiental (PROCAM) - IEE/USP
+
+-   Experiência anterior:
+
+    -   2 anos - analista de dados na [R6/Curso-R](https://curso-r.com/)
+    -   2 anos - NTGA/SMSU/PMSP
+
+<!-- ## Ensino -->
+
+<!-- -   Instrutora de Tidyverse certificada pela Posit (antiga RStudio) -->
+
+<!-- -   [Curso-R](https://curso-r.com/) -->
+
+<!-- -   [Curso de verão IME-USP](https://www.ime.usp.br/~verao/) -->
+
+<!-- -   [CEBRAP.lab](https://cebrap.org.br/cebrap-lab/) -->
+
+## Conteúdos que estou mais envolvida
+
+
+-   Organização do projeto de tradução **voluntária** pela comunidade, da segunda edição do livro "R for Data Science": <https://cienciadedatos.github.io/pt-r4ds/>
+
+![](img/r4ds2.png){fig-align="center"}
+
+## Conteúdos que estou mais envolvida
+
+Organização, junto com a Luana Antunes, do clube do livro "R for Data Science", pela R-Ladies São Paulo. [Mais informações](https://docs.google.com/document/d/1xCn5gxK47tj9lRpDovwGNlza9i1FX2VBixo1V7VtUUs/edit?usp=sharing).
+
+![](img/clube_do_livro.png){fig-align="center"}
+
+## O que eu gosto de fazer?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+-   Dormir
+
+![](img/bela-adormecida.jpg){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+- [Ler](https://www.skoob.com.br/usuario/10490743)
+
+![](img/skoob.png){fig-align="center"}
+:::
+
+::::
+
+
+
+## O que eu gosto de fazer em R?
+
+-   Automatizar tarefas -\> mais tempo para fazer coisas que eu gosto!
+
+![](img/boring.jpg){fig-align="center"}
+
+# Compartilhando os resultados
+
+![](img/comunicacao.png){fig-align="center"}
+
+## Compartilhando os resultados
+
+-   Compartilhar os resultados é uma etapa importante na pesquisa!
+
+-   Existem vários formatos de comunicação, pois depende do público que queremos atingir.
+
+-   A comunicação pode ser feita de diferentes formas: TCCs, dissertações, teses, artigos científicos, relatórios, apresentações, vídeos, textos para a internet, etc.
+
+## Rotina de trabalho comum
+
+-   Fazer as análises, tabelas, gráficos, mapas em algum software específico (ex. Excel, Google Sheets, SPSS, R, Python, QGIS, etc.).
+
+-   Copiar e colar os resultados em um documento de texto (ex. Word, Google Docs, etc.), em uma apresentação (ex. Power Point, Google Slides, etc.).
+
+-   Salvar o arquivo e enviar para a pessoa que te orienta, colegas, etc.
+
+::: footer
+Isso é uma generalização, baseado em como eu fazia antes de começar a usar R :)
+:::
+
+## Ainda em uma rotina comum
+
+-   Recebemos feedback e precisamos incorporar as sugestões
+
+-   A base de dados é atualizada
+
+-   Precisamos fazer alterações nas análises
+
+-   **Precisamos refazer os passos do slide anterior! :(**
+
+![](https://media1.tenor.com/images/903d98f426842a6d8aabea62516859f6/tenor.gif?itemid=7401366){fig-align="center"}
+
+
+## Problemas dessa rotina
+
+-   Não conseguimos reproduzir os resultados sem refazer tudo manualmente.
+
+-   Gastamos muito tempo refazendo tudo manualmente.
+
+-   Maior chance de erros!
+
+# Reprodutibilidade
+
+-   "É um conceito que não tem uma definição única e comum". [(Gundersen, 2021)](https://doi.org/10.1098/rsta.2020.0210)
+
+-   "Para alguém fazer uma afirmação científica legítima, ele deve ser capaz de reproduzir totalmente seus resultados a partir de seus dados brutos (e de preferência outros devem ser capazes de reproduzi-los também)". [Dr. John Paul Helveston](https://jhelvy.github.io/r4aPrimer/L6-reproducible-reporting.html)
+
+
+- Além de **promover a confiança na ciência**, a reprodutibilidade **facilita a colaboração entre pesquisadores**, permitindo que análises sejam revisadas, aprimoradas e adaptadas para outros contextos. 
+
+
+
+## Reprodutibilidade
+
+Quais fatores contribuem com pesquisa não reprodutível? Fonte: <a href='https://doi.org/10.1038/533452a'>Baker (2016)</a>
+
+```{r echo=FALSE, out.width="100%"}
+#| fig-align: "center"
+knitr::include_graphics("img/irreproducible.png")
+```
+
+## Reprodutibilidade
+
+> "Reprodutibilidade é como escovar os dentes. Isso é bom para você, mas leva tempo e esforço. Depois de aprender, torna-se um hábito." - Irakli Loladze, Bryan College of Health Sciences em Lincoln, Nebraska.
+
+Baker, M. 1,500 scientists lift the lid on reproducibility. Nature 533, 452--454 (2016). <https://doi.org/10.1038/533452a>
+
+## Exemplos
+
+- Documentação adequada de métodos
+
+- Disponibilização da base de dados original
+
+- Disponibilização dos códigos utilizados para realizar as etapas de ciência de dados
+
+
+# Alternativa: Programação letrada
+
+- Utilização de linguagens de programação para realizar as etapas de ciência de dados.
+
+- Cada etapa de análise é documentada em forma de código, que pode ser compartilhada com pares para que seja consultada, avaliada, e aprimorada em pesquisas futuras.
+
+- Programação letrada (*literate programming*): 
+  - Conceito criado por [Donald Knuth](https://www-cs-faculty.stanford.edu/~knuth/lp.html) na década de 80.
+  - Esse paradigma de programação consiste em colocar o código fonte de um programa e texto de sua documentação em um único arquivo, de forma que pessoas possam ler e entender o conteúdo.
+
+# Ciência Aberta
+
+- [Open Science @ FAPESP](https://www.fapesp.br/openscience/)
+
+- [Critérios SciELO Brasil: critérios, políticas e procedimentos para a admissão e a permanência de periódicos científicos na Coleção SciELO Brasil ](https://www.scielo.br/about/criterios-scielo-brasil), Versão atual: Setembro, 2022.
+
+- [Editorial 2/2024 Ambiente & Sociedade](https://github.com/beatrizmilz/2024-07-unifesp-apresentacao/blob/main/textos/Editorial-2_2024_ASOC-Portugues.pdf): Recuperar a ciência como um bem público: novos caminhos para as políticas editoriais (em processo de publicação)
+
+
+# Quarto
+
+![](img/quarto-horst.png){fig-align="center"}
+
+::: footer
+Fonte: Allison Horst (@allison_horst).
+:::
+
+
+
+
+## Quarto
+
+-   O R Markdown é um pacote em R para criação de **relatórios automatizados** utilizando as linguagens de programação R e de marcação Markdown, criado em 2014.
+
+-   O Quarto é a **nova geração** do RMarkdown! Não é mais apenas um pacote em R, e sim um software que pode ser usado com outras linguagens de programação, como Python e Julia. Foi lançado em 2022.
+
+-   O arquivo gerado é **estático**, não depende de uma sessão de R para ser aberto.
+
+-   Podemos gerar arquivos word, powerpoint, pdf, html (páginas da internet), etc.
+
+## Pontos positivos
+
+-   Reprodutibilidade
+
+-   Facilidade de atualização do arquivo final
+
+-   Menor chance de erros
+
+-   Facilidade de aproveitar o código e gerar diferentes tipos de arquivos finais.
+
+-   Facilidade de compartilhar o código e os resultados com outras pessoas.
+
+-   Possibilita a revisão por pares (peer review) do código.
+
+-   Incentiva uso de boas práticas de programação.
+
+-   Focamos mais no conteúdo, e não na formatação.
+
+## Pontos negativos
+
+-   Curva de aprendizado
+
+-   Dificuldade de colaboração com pessoas que não programam
+
+-   Formatação mais limitada
+
+-   [Expert blind spot](https://carpentries.github.io/instructor-training/04-expertise.html#mind-the-gap)... Fui perguntar a opinião de outras pessoas :)
+
+## Pontos negativos (opinião de outras pessoas)
+
+-   Dificuldade em formatar os conteúdos de forma mais personalizada
+
+-   É preciso entender pelo menos um pouco de campos diferentes (Markdown, HTML, CSS)
+
+-   Não conseguir fazer animações como no Powerpoint
+
+-   Obrigada: [Haydee Svab](https://www.linkedin.com/in/hsvab/?originalSubdomain=br), [Fernanda Peres](https://fernandafperes.com.br/), [Bianca Muniz](https://biamuniz.github.io/)
+
+## Dificuldades para quem está começando (opinião de outras pessoas)
+
+-   Entender a vantagem da reprodutibilidade
+
+-   Vencer a curva de aprendizado inicial: o benefício é mais claro ao longo prazo
+
+-   Acreditar que na imensa maioria das vezes terão um resultado final melhor do que fazer ajustes na mão
+
+-   Obrigada: [Haydee Svab](https://www.linkedin.com/in/hsvab/?originalSubdomain=br), [Fernanda Peres](https://fernandafperes.com.br/), [Bianca Muniz](https://biamuniz.github.io/)
+
+## Opinião da Fernanda Peres
+
+> "Eu sou MUITO fã do RMarkdown para relatórios, realmente agilizou meu trabalho, minha entrega de relatórios. Não migrei para o Quarto ainda porque senti que há funções que eu uso que ainda não foram implementadas em Quarto."
+
+![](img/fe-peres.png){fig-align="center"}
+
+# Primeiros passos
+
+-   <https://quarto.org/docs/get-started/>
+
+## Estrutura de um arquivo `.qmd`
+
+-   O arquivo `.qmd` é um arquivo de texto, que pode ser aberto em qualquer editor de texto (ex. RStudio, VS Code, bloco de notas, etc.).
+
+-   Nesse arquivo, temos a seção de metadados, onde definimos o título, autoria, data, tipo de arquivo gerado, etc.
+
+-   Depois, adicionamos o conteúdo, onde escrevemos o texto, inserimos os códigos, tabelas, gráficos, etc.
+
+-   Podemos configurar como queremos que os resultados apareçam no arquivo final: se queremos o código e o resultado, apenas o resultado, etc.
+
+## Criando um Projeto Quarto no RStudio
+
+![](img/rstudio-newproject.png){fig-align="center"}
+
+## Criando um Projeto Quarto no RStudio
+
+![](img/rstudio-create-quarto-project.png){fig-align="center"}
+
+## Criando um arquivo Quarto no RStudio
+
+![](img/rstudio-newfile.png){fig-align="center"}
+
+## Criando um arquivo Quarto no RStudio
+
+![](img/rstudio-quarto-project-created.png){fig-align="center"}
+
+## Campos de código - Carregar pacotes
+
+```{r}
+#| echo: fenced
+library(tidyverse)
+library(fs) # lidar com pastas 
+library(flextable) # criar tabelas
+library(dados) # tem a base de pinguins
+```
+
+## Campos de código - Importar base de dados
+
+```{r}
+#| echo: fenced
+
+# Link da Base de dados
+url <- "https://benubah.github.io/r-community-explorer/data/rladies.csv"
+
+# Criar pasta data
+dir_create("data")
+
+# Fazer o download do arquivo e salvar na pasta data
+download.file(url, "data/rladies.csv", method = "curl")
+
+# importar a base de dados baixada
+rladies <- read_csv("data/rladies.csv")
+```
+
+## Campos de código - Tabela
+
+```{r}
+#| echo: fenced
+rladies |> 
+  group_by(region) |>
+  summarise(
+    soma_membros = sum(members),
+    quantidade_capitulos = n()
+  ) |> 
+  arrange(desc(soma_membros)) |> 
+  flextable()
+```
+
+## Campos de código - Gráfico
+
+```{r}
+#| echo: fenced
+grafico_latin_rladies <- rladies |> 
+  filter(region == "Latin America") |> 
+  group_by(country) |>
+  summarise(
+    soma_membros = sum(members),
+    quantidade_capitulos = n()
+  ) |> 
+  mutate(country = fct_reorder(country, soma_membros)) |>
+  ggplot() +
+  geom_col(
+    aes(y = country, x = soma_membros)
+  ) +
+  theme_light() +
+  labs(
+    x = "Quantidade de membros",
+    y = "País",
+    title = "R-Ladies na América Latina",
+    subtitle = "Membros na plataforma Meetup [desatualizado]"
+  ) +
+  gghighlight::gghighlight(
+    country == "Brazil"
+  )
+```
+
+## Campos de código - Gráfico
+
+```{r}
+#| echo: fenced
+#| fig.align: "center"
+grafico_latin_rladies
+```
+
+## E o texto com os resultados?
+
+```{css}
+.colorido{
+  background-color: #FDB525;
+}
+```
+
+```{r include=FALSE}
+pinguins <- dados::pinguins
+```
+
+-   Vamos ler esse trecho:
+
+A base de dados pinguins apresenta dados referente à `r nrow(pinguins)` pinguins, das seguintes espécies: `r knitr::combine_words(unique(pinguins$especie), and = "e ")`. Os dados foram coletados entre os anos `r min(pinguins$ano)` e `r max(pinguins$ano)`, nas seguintes ilhas: `r knitr::combine_words(unique(pinguins$ilha), and = "e ")`. O peso médio dos pinguins amostrados foi de `r round(mean(pinguins$massa_corporal, na.rm = TRUE)/100)` kg. Os dados foram obtidos através do pacote [dados](https://cienciadedatos.github.io/dados/).
+
+## E o texto com os resultados?
+
+-   Destacando os valores que podemos gerar com R:
+
+A base de dados pinguins apresenta dados referente à [`r nrow(pinguins)`]{.colorido} pinguins, das seguintes espécies: [`r knitr::combine_words(unique(pinguins$especie), and = "e ")`]{.colorido}. Os dados foram coletados entre os anos [`r min(pinguins$ano)`]{.colorido} e [`r max(pinguins$ano)`]{.colorido}, nas seguintes ilhas: [`r knitr::combine_words(unique(pinguins$ilha), and = "e ")`]{.colorido}. O peso médio dos pinguins amostrados foi de [`r round(mean(pinguins$massa_corporal, na.rm = TRUE)/100)`]{.colorido} kg. Os dados foram obtidos através do pacote [dados](https://cienciadedatos.github.io/dados/).
+
+## E o texto com os resultados?
+
+-   O código por trás:
+
+![](img/codigo-pinguins.png){fig-align="center"}
+
+## Outras funcionalidades interessantes para documentos acadêmicos
+
+-   Adicionar equações com LaTeX
+
+-   Adicionar referências bibliográficas com Zotero (ou outro gerenciador de referências que gere um arquivo `.bib`)
+
+-   Gerar a lista de referências ao final do documento (a partir de um arquivo `.csl`
+
+-   Facilidade para citar pacotes em R
+
+-   Referências cruzadas (capítulos, figuras, tabelas)
+
+-   [Leia sobre](https://beatrizmilz.github.io/2023-curso-de-verao-ime-usp-relatorios/slides/05-elementos-acad.html#/)
+
+# Exemplos
+
+## Exemplos de documentos acadêmicos
+
+-   [Tese de doutorado Julio Trecenti](https://jtrecenti.github.io/doutorado/Resolvendo-Captchas.pdf)
+
+-   [Artigo da minha pesquisa de mestrado](http://www.ambi-agua.net/seer/index.php/ambi-agua/article/view/2402)
+
+## Comunicação: exemplos \[pt. 1\]
+
+```{r}
+#| echo: false
+exemplos <- tibble::tibble(desc = as.character(),
+               exemplos = as.character()) |>
+  
+  tibble::add_row(desc = "Blogs e sites",
+                  exemplos = "- [RStudio AI Blog](https://blogs.rstudio.com/ai/) <br> - [Blog da R-Ladies São Paulo](https://rladies-sp.org)") |>
+  tibble::add_row(
+                  desc = "Livros",
+                  exemplos = "- [R for Data Science](http://r4ds.hadley.nz/)") |>
+  
+  tibble::add_row(
+                  desc = "Apresentações",
+                  exemplos = "- Essa apresentação (e a maioria das apresentadas por mim) <br> - [Apresentação da tese de doutorado do Julio Trecenti](https://jtrecenti.github.io/doutorado/defesa/#/title-slide)") |>
+  
+  tibble::add_row(
+                  desc = "Relatórios",
+                  exemplos = "- [Relatório do Observatório da Insolvência](https://abjur.github.io/obsFase2/relatorio/obs_recuperacoes_abj.pdf)") |>
+  
+    tibble::add_row(
+                  desc = "Trabalhos acadêmicos",
+                  exemplos = "- [Tese de doutorado Julio Trecenti](https://jtrecenti.github.io/doutorado/Resolvendo-Captchas.pdf)") |>
+  tibble::add_row(
+                  desc = "Artigos científicos",
+                  exemplos = "- [Artigo da minha pesquisa de mestrado](http://www.ambi-agua.net/seer/index.php/ambi-agua/article/view/2402)") |> 
+  tibble::add_row(
+                  desc = "Outros exemplos",
+                  exemplos = "[Newsletter Garimpo](https://nucleo.jor.br/newsletters/garimpo)") 
+  
+
+
+exemplos |>
+  dplyr::slice(1:3) |> 
+  knitr::kable(col.names = c("O que podemos fazer?", "Exemplos"))
+```
+
+## Comunicação: exemplos \[pt. 2\]
+
+```{r}
+#| echo: false
+exemplos |>
+  dplyr::slice(4:dplyr::n()) |> 
+  knitr::kable(col.names = c("O que podemos fazer?", "Exemplos"))
+```
+
+# Conclusão
+
+## Para aprender mais sobre o Quarto
+
+-   [Post sobre o Quarto no blog da R-Ladies São Paulo, por Ariane Hayana](https://rladies-sp.org/posts/2023-02-tutorial-quarto/)
+
+-   [Documentação do Quarto](https://quarto.org/docs/get-started/)
+
+-   [Material do curso de verão IME USP](https://beatrizmilz.github.io/2024-curso-de-verao-ime-usp-relatorios/slides.html)
+
+- Leitura recomendada: [Reprodutibilidade e compartilhamento de
+resultados na pesquisa científica](https://github.com/beatrizmilz/2024-07-unifesp-apresentacao/blob/main/textos/BEATRIZ-MILZ-TEXTO-SINCID-2023.pdf) (em processo de publicação)
+
+## Para aprender mais
+
+-   Criei uma lista no Youtube de videos em que eu participo :): [bit.ly/beamilz-yt](https://youtube.com/playlist?list=PLR44bTVMOm7P7SY8dkGudwXXabhEjYTT4&si=VAFbo8U4Y6ByNyuc) - mais de 50 vídeos, desde 2019. Tem vários nesse tema!
+
+![](img/youtube.jpg){fig-align="center"}
+
+## Conteúdos que estou mais envolvida
+
+-   Textos:
+
+    -   Meu blog: <https://beamilz.com>
+
+    -   Blog da R-Ladies São Paulo: <https://rladies-sp.org/>
+
+## Saiba mais sobre a R-Ladies
+
+-   R-Ladies São Paulo:
+
+    -   Blog: <https://rladies-sp.org/>
+    -   [<i class="fab fa-linkedin"></i> Linkedin](https://www.linkedin.com/company/r-ladies-sao-paulo/)
+    -   [<i class="fab fa-instagram"></i> Instagram](https://instagram.com/RLadiesSaoPaulo)
+    -   [<i class="fab fa-meetup"></i> Meetup](https://www.meetup.com/rladies-sao-paulo/)
+    -   [<i class="fab fa-github"></i> GitHub](https://github.com/R-Ladies-Sao-Paulo)
+    -   [<i class="fab fa-youtube"></i> Youtube](https://www.youtube.com/c/RLadiesSãoPaulo)
+
+## Obrigada!
+
+-   [<i class="fa fa-envelope"></i> Email: milz.bea\@gmail.com](mailto:milz.bea@gmail.com)
+
+-   [<i class="fab fa-instagram"></i> Instagram: \@dadoseambiente](https://www.instagram.com/dadoseambiente/)
+
+-   [<i class="fab fa-linkedin"></i> Linkedin: Beatriz Milz](https://www.linkedin.com/in/beatrizmilz/)
+
+-   [<i class="fab fa-github"></i> GitHub: \@beatrizmilz](https://github.com/beatrizmilz/)
+
+Slides por [Beatriz Milz](https://beamilz.com) (@BeaMilz), feito com [Quarto](https://quarto.org/docs/presentations/revealjs/index.html) e [Quarto R-Ladies Theme](https://github.com/beatrizmilz/quarto-rladies-theme#quarto-r-ladies-theme).
+
+<!-- inicio font awesome -->
+
+```{=html}
+<script src="https://kit.fontawesome.com/1f72d6921a.js" crossorigin="anonymous"></script>
+```
+<!-- final font awesome -->
