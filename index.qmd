@@ -15,11 +15,15 @@ code-link: true
 
 -   Quem sou eu?
 
--   Compartilhando resultados
+-   Compartilhando resultados: rotina de trabalho convencional, reprodutibilidade, programação letrada.
 
--   Quarto: o que é, quais as vantagens e desvantagens, como dar os primeiros passos.
+-   Quarto: o que é, quais as vantagens e desvantagens.
 
 -   Exemplos de uso do Quarto
+
+-   Comunicação além do Quarto: Shiny.
+
+-   Primeiros passos no Quarto
 
 -   Links para saber mais
 
@@ -217,6 +221,25 @@ Baker, M. 1,500 scientists lift the lid on reproducibility. Nature 533, 452--454
 
 - [Editorial 2/2024 Ambiente & Sociedade](https://github.com/beatrizmilz/2024-07-unifesp-apresentacao/blob/main/textos/Editorial-2_2024_ASOC-Portugues.pdf): Recuperar a ciência como um bem público: novos caminhos para as políticas editoriais (em processo de publicação)
 
+# Usando o R para apresentar resultados
+
+
+## Ciclo da Ciência de Dados
+
+![](img/ciclo-ciencia-de-dados.png){fig-align="center"}
+
+::: footer
+Fonte: <https://livro.curso-r.com/4-2-tidyverse.html>
+:::
+
+## Ciclo da Ciência de Dados
+
+![](img/environmental-data-science-r4ds-general.png){fig-align="center"}
+
+::: footer
+Fonte: Allison Horst (@allison_horst).
+:::
+
 
 # Quarto
 
@@ -292,6 +315,130 @@ Fonte: Allison Horst (@allison_horst).
 > "Eu sou MUITO fã do RMarkdown para relatórios, realmente agilizou meu trabalho, minha entrega de relatórios. Não migrei para o Quarto ainda porque senti que há funções que eu uso que ainda não foram implementadas em Quarto."
 
 ![](img/fe-peres.png){fig-align="center"}
+
+# Exemplos
+
+## Exemplos de documentos acadêmicos
+
+-   [Tese de doutorado Julio Trecenti](https://jtrecenti.github.io/doutorado/Resolvendo-Captchas.pdf)
+
+-   [Artigo da minha pesquisa de mestrado](http://www.ambi-agua.net/seer/index.php/ambi-agua/article/view/2402)
+
+## Comunicação: exemplos \[pt. 1\]
+
+```{r}
+#| echo: false
+exemplos <- tibble::tibble(desc = as.character(),
+               exemplos = as.character()) |>
+  
+  tibble::add_row(desc = "Blogs e sites",
+                  exemplos = "- [RStudio AI Blog](https://blogs.rstudio.com/ai/) <br> - [Blog da R-Ladies São Paulo](https://rladies-sp.org)") |>
+  tibble::add_row(
+                  desc = "Livros",
+                  exemplos = "- [R for Data Science](http://r4ds.hadley.nz/)") |>
+  
+  tibble::add_row(
+                  desc = "Apresentações",
+                  exemplos = "- Essa apresentação (e a maioria das apresentadas por mim) <br> - [Apresentação da tese de doutorado do Julio Trecenti](https://jtrecenti.github.io/doutorado/defesa/#/title-slide)") |>
+  
+  tibble::add_row(
+                  desc = "Relatórios",
+                  exemplos = "- [Relatório do Observatório da Insolvência](https://abjur.github.io/obsFase2/relatorio/obs_recuperacoes_abj.pdf)") |>
+  
+    tibble::add_row(
+                  desc = "Trabalhos acadêmicos",
+                  exemplos = "- [Tese de doutorado Julio Trecenti](https://jtrecenti.github.io/doutorado/Resolvendo-Captchas.pdf)") |>
+  tibble::add_row(
+                  desc = "Artigos científicos",
+                  exemplos = "- [Artigo da minha pesquisa de mestrado](http://www.ambi-agua.net/seer/index.php/ambi-agua/article/view/2402)") |> 
+  tibble::add_row(
+                  desc = "Outros exemplos",
+                  exemplos = "[Newsletter Garimpo](https://nucleo.jor.br/newsletters/garimpo)") 
+  
+
+
+exemplos |>
+  dplyr::slice(1:3) |> 
+  knitr::kable(col.names = c("O que podemos fazer?", "Exemplos"))
+```
+
+## Comunicação: exemplos \[pt. 2\]
+
+```{r}
+#| echo: false
+exemplos |>
+  dplyr::slice(4:dplyr::n()) |> 
+  knitr::kable(col.names = c("O que podemos fazer?", "Exemplos"))
+```
+
+# Comunicação além do Quarto
+
+
+## Comunicação: ferramentas
+
+-   [RMarkdown](https://rmarkdown.rstudio.com/) e [Quarto](https://quarto.org/)
+
+-   [Shiny](https://shiny.rstudio.com/)
+
+## Ideia importante: Interatividade
+
+![](img/interatividade.png){fig-align="center"}
+
+::: incremental
+-   É interessante conseguir identificar a interatividade que vem do JavaScript e a interatividade feita com código em R.
+:::
+
+::: footer
+Fonte: Elaborado pela autora.
+:::
+
+## RMarkdown e Quarto
+
+-   O arquivo gerado é **estático**, não depende de uma sessão de R para ser aberto.
+
+-   Os elementos adicionados podem ter algum nível de interatividade (como mapas, gráficos, tabelas) utilizando bibliotecas em JavaScript.
+
+- Facilita o uso para programação letrada.
+
+## Shiny
+
+-   Shiny é um pacote em R para criar **dashboards interativos** com R.
+
+- Melhor dos mundos para interatividade: podemos utilizar elementos que são interativos devido ao JS, e também podemos apresentar conteúdos interativos utilizando R.
+
+- Necessita de uma sessão de R para que seja aberto!
+
+- Não é focado em programação letrada.
+
+- É possível fazer dashboards para usos científicos. Ex: Zootraits ([dashboard](https://ecofun.shinyapps.io/zootraits/) e [artigo](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.11334))
+
+![](img/shiny.png){fig-align="center" width="50%"}
+
+::: footer
+Fonte: <https://rstudio.com/shiny/>
+:::
+
+## Shiny - Servidor e Interface do Usuário
+
+![](img/esquema_ui_servidor.png){fig-align="center" width="50%"}
+
+::: footer
+Fonte: <https://curso-r.github.io/main-dashboards/slides/02-shiny-introducao.html>
+:::
+
+## Qual usar?
+
+- Depende do objetivo, público-alvo, etc!
+
+- A forma de programar nos dois é bem diferente. 
+
+- Existe algo no meio do caminho, que permite usar o shiny de forma simplificada: [Quarto Dashboards](https://quarto.org/docs/dashboards/) e [flexdashboard](https://pkgs.rstudio.com/flexdashboard/) (com RMarkdown)!
+
+- Considero Quarto/RMarkdown mais fácil de aprender.
+
+- Shiny "convencional" (quero dizer, sem flexdashboards) te dá muitas possibilidades, no longo prazo é interessante também :)
+
+
 
 # Primeiros passos
 
@@ -443,60 +590,6 @@ A base de dados pinguins apresenta dados referente à [`r nrow(pinguins)`]{.colo
 
 -   [Leia sobre](https://beatrizmilz.github.io/2023-curso-de-verao-ime-usp-relatorios/slides/05-elementos-acad.html#/)
 
-# Exemplos
-
-## Exemplos de documentos acadêmicos
-
--   [Tese de doutorado Julio Trecenti](https://jtrecenti.github.io/doutorado/Resolvendo-Captchas.pdf)
-
--   [Artigo da minha pesquisa de mestrado](http://www.ambi-agua.net/seer/index.php/ambi-agua/article/view/2402)
-
-## Comunicação: exemplos \[pt. 1\]
-
-```{r}
-#| echo: false
-exemplos <- tibble::tibble(desc = as.character(),
-               exemplos = as.character()) |>
-  
-  tibble::add_row(desc = "Blogs e sites",
-                  exemplos = "- [RStudio AI Blog](https://blogs.rstudio.com/ai/) <br> - [Blog da R-Ladies São Paulo](https://rladies-sp.org)") |>
-  tibble::add_row(
-                  desc = "Livros",
-                  exemplos = "- [R for Data Science](http://r4ds.hadley.nz/)") |>
-  
-  tibble::add_row(
-                  desc = "Apresentações",
-                  exemplos = "- Essa apresentação (e a maioria das apresentadas por mim) <br> - [Apresentação da tese de doutorado do Julio Trecenti](https://jtrecenti.github.io/doutorado/defesa/#/title-slide)") |>
-  
-  tibble::add_row(
-                  desc = "Relatórios",
-                  exemplos = "- [Relatório do Observatório da Insolvência](https://abjur.github.io/obsFase2/relatorio/obs_recuperacoes_abj.pdf)") |>
-  
-    tibble::add_row(
-                  desc = "Trabalhos acadêmicos",
-                  exemplos = "- [Tese de doutorado Julio Trecenti](https://jtrecenti.github.io/doutorado/Resolvendo-Captchas.pdf)") |>
-  tibble::add_row(
-                  desc = "Artigos científicos",
-                  exemplos = "- [Artigo da minha pesquisa de mestrado](http://www.ambi-agua.net/seer/index.php/ambi-agua/article/view/2402)") |> 
-  tibble::add_row(
-                  desc = "Outros exemplos",
-                  exemplos = "[Newsletter Garimpo](https://nucleo.jor.br/newsletters/garimpo)") 
-  
-
-
-exemplos |>
-  dplyr::slice(1:3) |> 
-  knitr::kable(col.names = c("O que podemos fazer?", "Exemplos"))
-```
-
-## Comunicação: exemplos \[pt. 2\]
-
-```{r}
-#| echo: false
-exemplos |>
-  dplyr::slice(4:dplyr::n()) |> 
-  knitr::kable(col.names = c("O que podemos fazer?", "Exemplos"))
-```
 
 # Conclusão
 

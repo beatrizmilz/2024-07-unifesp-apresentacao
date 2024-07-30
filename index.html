@@ -407,9 +407,11 @@
 <ul>
 <li><p>O que é a R-Ladies SP?</p></li>
 <li><p>Quem sou eu?</p></li>
-<li><p>Compartilhando resultados</p></li>
-<li><p>Quarto: o que é, quais as vantagens e desvantagens, como dar os primeiros passos.</p></li>
+<li><p>Compartilhando resultados: rotina de trabalho convencional, reprodutibilidade, programação letrada.</p></li>
+<li><p>Quarto: o que é, quais as vantagens e desvantagens.</p></li>
 <li><p>Exemplos de uso do Quarto</p></li>
+<li><p>Comunicação além do Quarto: Shiny.</p></li>
+<li><p>Primeiros passos no Quarto</p></li>
 <li><p>Links para saber mais</p></li>
 </ul></section><section><section id="r-ladies-são-paulo" class="title-slide slide level1 center"><h1>R-Ladies São Paulo</h1>
 
@@ -551,7 +553,19 @@
 <li><p><a href="https://www.fapesp.br/openscience/">Open Science @ FAPESP</a></p></li>
 <li><p><a href="https://www.scielo.br/about/criterios-scielo-brasil">Critérios SciELO Brasil: critérios, políticas e procedimentos para a admissão e a permanência de periódicos científicos na Coleção SciELO Brasil</a>, Versão atual: Setembro, 2022.</p></li>
 <li><p><a href="https://github.com/beatrizmilz/2024-07-unifesp-apresentacao/blob/main/textos/Editorial-2_2024_ASOC-Portugues.pdf">Editorial 2/2024 Ambiente &amp; Sociedade</a>: Recuperar a ciência como um bem público: novos caminhos para as políticas editoriais (em processo de publicação)</p></li>
-</ul></section><section><section id="quarto" class="title-slide slide level1 center"><h1>Quarto</h1>
+</ul></section><section><section id="usando-o-r-para-apresentar-resultados" class="title-slide slide level1 center"><h1>Usando o R para apresentar resultados</h1>
+
+</section><section id="ciclo-da-ciência-de-dados" class="slide level2"><h2>Ciclo da Ciência de Dados</h2>
+
+<img data-src="img/ciclo-ciencia-de-dados.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Fonte: <a href="https://livro.curso-r.com/4-2-tidyverse.html" class="uri">https://livro.curso-r.com/4-2-tidyverse.html</a></p>
+</div>
+</section><section id="ciclo-da-ciência-de-dados-1" class="slide level2"><h2>Ciclo da Ciência de Dados</h2>
+
+<img data-src="img/environmental-data-science-r4ds-general.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+<p>Fonte: Allison Horst (<span class="citation" data-cites="allison_horst">@allison_horst</span>).</p>
+</div>
+</section></section><section><section id="quarto" class="title-slide slide level1 center"><h1>Quarto</h1>
 
 <img data-src="img/quarto-horst.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
 <p>Fonte: Allison Horst (<span class="citation" data-cites="allison_horst">@allison_horst</span>).</p>
@@ -595,177 +609,7 @@
 <p>“Eu sou MUITO fã do RMarkdown para relatórios, realmente agilizou meu trabalho, minha entrega de relatórios. Não migrei para o Quarto ainda porque senti que há funções que eu uso que ainda não foram implementadas em Quarto.”</p>
 </blockquote>
 
-<img data-src="img/fe-peres.png" class="quarto-figure quarto-figure-center r-stretch"></section></section><section><section id="primeiros-passos" class="title-slide slide level1 center"><h1>Primeiros passos</h1>
-<ul>
-<li><a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></li>
-</ul></section><section id="estrutura-de-um-arquivo-.qmd" class="slide level2"><h2>Estrutura de um arquivo <code>.qmd</code>
-</h2>
-<ul>
-<li><p>O arquivo <code>.qmd</code> é um arquivo de texto, que pode ser aberto em qualquer editor de texto (ex. RStudio, VS Code, bloco de notas, etc.).</p></li>
-<li><p>Nesse arquivo, temos a seção de metadados, onde definimos o título, autoria, data, tipo de arquivo gerado, etc.</p></li>
-<li><p>Depois, adicionamos o conteúdo, onde escrevemos o texto, inserimos os códigos, tabelas, gráficos, etc.</p></li>
-<li><p>Podemos configurar como queremos que os resultados apareçam no arquivo final: se queremos o código e o resultado, apenas o resultado, etc.</p></li>
-</ul></section><section id="criando-um-projeto-quarto-no-rstudio" class="slide level2"><h2>Criando um Projeto Quarto no RStudio</h2>
-
-<img data-src="img/rstudio-newproject.png" class="quarto-figure quarto-figure-center r-stretch"></section><section id="criando-um-projeto-quarto-no-rstudio-1" class="slide level2"><h2>Criando um Projeto Quarto no RStudio</h2>
-
-<img data-src="img/rstudio-create-quarto-project.png" class="quarto-figure quarto-figure-center r-stretch"></section><section id="criando-um-arquivo-quarto-no-rstudio" class="slide level2"><h2>Criando um arquivo Quarto no RStudio</h2>
-
-<img data-src="img/rstudio-newfile.png" class="quarto-figure quarto-figure-center r-stretch"></section><section id="criando-um-arquivo-quarto-no-rstudio-1" class="slide level2"><h2>Criando um arquivo Quarto no RStudio</h2>
-
-<img data-src="img/rstudio-quarto-project-created.png" class="quarto-figure quarto-figure-center r-stretch"></section><section id="campos-de-código---carregar-pacotes" class="slide level2"><h2>Campos de código - Carregar pacotes</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href=""></a><span class="in">library(tidyverse)</span></span>
-<span id="cb1-3"><a href=""></a><span class="in">library(fs) # lidar com pastas </span></span>
-<span id="cb1-4"><a href=""></a><span class="in">library(flextable) # criar tabelas</span></span>
-<span id="cb1-5"><a href=""></a><span class="in">library(dados) # tem a base de pinguins</span></span>
-<span id="cb1-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="campos-de-código---importar-base-de-dados" class="slide level2"><h2>Campos de código - Importar base de dados</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href=""></a><span class="in"># Link da Base de dados</span></span>
-<span id="cb2-3"><a href=""></a><span class="in">url &lt;- "https://benubah.github.io/r-community-explorer/data/rladies.csv"</span></span>
-<span id="cb2-4"><a href=""></a></span>
-<span id="cb2-5"><a href=""></a><span class="in"># Criar pasta data</span></span>
-<span id="cb2-6"><a href=""></a><span class="in">dir_create("data")</span></span>
-<span id="cb2-7"><a href=""></a></span>
-<span id="cb2-8"><a href=""></a><span class="in"># Fazer o download do arquivo e salvar na pasta data</span></span>
-<span id="cb2-9"><a href=""></a><span class="in">download.file(url, "data/rladies.csv", method = "curl")</span></span>
-<span id="cb2-10"><a href=""></a></span>
-<span id="cb2-11"><a href=""></a><span class="in"># importar a base de dados baixada</span></span>
-<span id="cb2-12"><a href=""></a><span class="in">rladies &lt;- read_csv("data/rladies.csv")</span></span>
-<span id="cb2-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="campos-de-código---tabela" class="slide level2"><h2>Campos de código - Tabela</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href=""></a><span class="in">rladies |&gt; </span></span>
-<span id="cb3-3"><a href=""></a><span class="in">  group_by(region) |&gt;</span></span>
-<span id="cb3-4"><a href=""></a><span class="in">  summarise(</span></span>
-<span id="cb3-5"><a href=""></a><span class="in">    soma_membros = sum(members),</span></span>
-<span id="cb3-6"><a href=""></a><span class="in">    quantidade_capitulos = n()</span></span>
-<span id="cb3-7"><a href=""></a><span class="in">  ) |&gt; </span></span>
-<span id="cb3-8"><a href=""></a><span class="in">  arrange(desc(soma_membros)) |&gt; </span></span>
-<span id="cb3-9"><a href=""></a><span class="in">  flextable()</span></span>
-<span id="cb3-10"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="tabwid">
-<style>.cl-af81ec56{}.cl-af7dc40a{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-af7fe3fc{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-af7fe406{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-af7fedca{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af7fedcb{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af7fedcc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af7fedd4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af7fedd5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-af7fedd6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="cl-af81ec56">
-<thead><tr style="overflow-wrap:break-word;">
-<th class="cl-af7fedca"><p class="cl-af7fe3fc"><span class="cl-af7dc40a">region</span></p></th>
-<th class="cl-af7fedcb"><p class="cl-af7fe406"><span class="cl-af7dc40a">soma_membros</span></p></th>
-<th class="cl-af7fedcb"><p class="cl-af7fe406"><span class="cl-af7dc40a">quantidade_capitulos</span></p></th>
-</tr></thead>
-<tbody>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-af7fedcc"><p class="cl-af7fe3fc"><span class="cl-af7dc40a">US/Canada</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">30,112</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">59</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-af7fedcc"><p class="cl-af7fe3fc"><span class="cl-af7dc40a">Latin America</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">27,774</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">58</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-af7fedcc"><p class="cl-af7fe3fc"><span class="cl-af7dc40a">Europe</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">25,056</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">57</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-af7fedcc"><p class="cl-af7fe3fc"><span class="cl-af7dc40a">Asia</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">5,806</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">19</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-af7fedcc"><p class="cl-af7fe3fc"><span class="cl-af7dc40a">Africa</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">5,688</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">12</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-af7fedcc"><p class="cl-af7fe3fc"><span class="cl-af7dc40a">Australia</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">5,371</span></p></td>
-<td class="cl-af7fedd4"><p class="cl-af7fe406"><span class="cl-af7dc40a">10</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-af7fedd5"><p class="cl-af7fe3fc"><span class="cl-af7dc40a">Pacific/Galapagos</span></p></td>
-<td class="cl-af7fedd6"><p class="cl-af7fe406"><span class="cl-af7dc40a">460</span></p></td>
-<td class="cl-af7fedd6"><p class="cl-af7fe406"><span class="cl-af7dc40a">1</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section><section id="campos-de-código---gráfico" class="slide level2"><h2>Campos de código - Gráfico</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb4-2"><a href=""></a><span class="in">grafico_latin_rladies &lt;- rladies |&gt; </span></span>
-<span id="cb4-3"><a href=""></a><span class="in">  filter(region == "Latin America") |&gt; </span></span>
-<span id="cb4-4"><a href=""></a><span class="in">  group_by(country) |&gt;</span></span>
-<span id="cb4-5"><a href=""></a><span class="in">  summarise(</span></span>
-<span id="cb4-6"><a href=""></a><span class="in">    soma_membros = sum(members),</span></span>
-<span id="cb4-7"><a href=""></a><span class="in">    quantidade_capitulos = n()</span></span>
-<span id="cb4-8"><a href=""></a><span class="in">  ) |&gt; </span></span>
-<span id="cb4-9"><a href=""></a><span class="in">  mutate(country = fct_reorder(country, soma_membros)) |&gt;</span></span>
-<span id="cb4-10"><a href=""></a><span class="in">  ggplot() +</span></span>
-<span id="cb4-11"><a href=""></a><span class="in">  geom_col(</span></span>
-<span id="cb4-12"><a href=""></a><span class="in">    aes(y = country, x = soma_membros)</span></span>
-<span id="cb4-13"><a href=""></a><span class="in">  ) +</span></span>
-<span id="cb4-14"><a href=""></a><span class="in">  theme_light() +</span></span>
-<span id="cb4-15"><a href=""></a><span class="in">  labs(</span></span>
-<span id="cb4-16"><a href=""></a><span class="in">    x = "Quantidade de membros",</span></span>
-<span id="cb4-17"><a href=""></a><span class="in">    y = "País",</span></span>
-<span id="cb4-18"><a href=""></a><span class="in">    title = "R-Ladies na América Latina",</span></span>
-<span id="cb4-19"><a href=""></a><span class="in">    subtitle = "Membros na plataforma Meetup [desatualizado]"</span></span>
-<span id="cb4-20"><a href=""></a><span class="in">  ) +</span></span>
-<span id="cb4-21"><a href=""></a><span class="in">  gghighlight::gghighlight(</span></span>
-<span id="cb4-22"><a href=""></a><span class="in">    country == "Brazil"</span></span>
-<span id="cb4-23"><a href=""></a><span class="in">  )</span></span>
-<span id="cb4-24"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="campos-de-código---gráfico-1" class="slide level2"><h2>Campos de código - Gráfico</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href=""></a><span class="in">#| fig.align: "center"</span></span>
-<span id="cb5-3"><a href=""></a><span class="in">grafico_latin_rladies</span></span>
-<span id="cb5-4"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="e-o-texto-com-os-resultados" class="slide level2"><h2>E o texto com os resultados?</h2>
-<div class="cell">
-<style type="text/css">
-.colorido{
-  background-color: #FDB525;
-}
-</style>
-</div>
-<ul>
-<li>Vamos ler esse trecho:</li>
-</ul>
-<p>A base de dados pinguins apresenta dados referente à 344 pinguins, das seguintes espécies: Pinguim-de-adélia, Pinguim-gentoo, e Pinguim-de-barbicha. Os dados foram coletados entre os anos 2007 e 2009, nas seguintes ilhas: Torgersen, Biscoe, e Dream. O peso médio dos pinguins amostrados foi de 42 kg. Os dados foram obtidos através do pacote <a href="https://cienciadedatos.github.io/dados/">dados</a>.</p>
-</section><section id="e-o-texto-com-os-resultados-1" class="slide level2"><h2>E o texto com os resultados?</h2>
-<ul>
-<li>Destacando os valores que podemos gerar com R:</li>
-</ul>
-<p>A base de dados pinguins apresenta dados referente à <span class="colorido">344</span> pinguins, das seguintes espécies: <span class="colorido">Pinguim-de-adélia, Pinguim-gentoo, e Pinguim-de-barbicha</span>. Os dados foram coletados entre os anos <span class="colorido">2007</span> e <span class="colorido">2009</span>, nas seguintes ilhas: <span class="colorido">Torgersen, Biscoe, e Dream</span>. O peso médio dos pinguins amostrados foi de <span class="colorido">42</span> kg. Os dados foram obtidos através do pacote <a href="https://cienciadedatos.github.io/dados/">dados</a>.</p>
-</section><section id="e-o-texto-com-os-resultados-2" class="slide level2"><h2>E o texto com os resultados?</h2>
-<ul>
-<li>O código por trás:</li>
-</ul>
-
-<img data-src="img/codigo-pinguins.png" class="quarto-figure quarto-figure-center r-stretch"></section><section id="outras-funcionalidades-interessantes-para-documentos-acadêmicos" class="slide level2"><h2>Outras funcionalidades interessantes para documentos acadêmicos</h2>
-<ul>
-<li><p>Adicionar equações com LaTeX</p></li>
-<li><p>Adicionar referências bibliográficas com Zotero (ou outro gerenciador de referências que gere um arquivo <code>.bib</code>)</p></li>
-<li><p>Gerar a lista de referências ao final do documento (a partir de um arquivo <code>.csl</code></p></li>
-<li><p>Facilidade para citar pacotes em R</p></li>
-<li><p>Referências cruzadas (capítulos, figuras, tabelas)</p></li>
-<li><p><a href="https://beatrizmilz.github.io/2023-curso-de-verao-ime-usp-relatorios/slides/05-elementos-acad.html#/">Leia sobre</a></p></li>
-</ul></section></section><section><section id="exemplos-1" class="title-slide slide level1 center"><h1>Exemplos</h1>
+<img data-src="img/fe-peres.png" class="quarto-figure quarto-figure-center r-stretch"></section></section><section><section id="exemplos-1" class="title-slide slide level1 center"><h1>Exemplos</h1>
 
 </section><section id="exemplos-de-documentos-acadêmicos" class="slide level2"><h2>Exemplos de documentos acadêmicos</h2>
 <ul>
@@ -831,7 +675,222 @@
 </table>
 </div>
 </div>
-</section></section><section><section id="conclusão" class="title-slide slide level1 center"><h1>Conclusão</h1>
+</section></section><section><section id="comunicação-além-do-quarto" class="title-slide slide level1 center"><h1>Comunicação além do Quarto</h1>
+
+</section><section id="comunicação-ferramentas" class="slide level2"><h2>Comunicação: ferramentas</h2>
+<ul>
+<li><p><a href="https://rmarkdown.rstudio.com/">RMarkdown</a> e <a href="https://quarto.org/">Quarto</a></p></li>
+<li><p><a href="https://shiny.rstudio.com/">Shiny</a></p></li>
+</ul></section><section id="ideia-importante-interatividade" class="slide level2"><h2>Ideia importante: Interatividade</h2>
+
+<img data-src="img/interatividade.png" class="quarto-figure quarto-figure-center r-stretch"><div>
+<ul>
+<li class="fragment">É interessante conseguir identificar a interatividade que vem do JavaScript e a interatividade feita com código em R.</li>
+</ul>
+</div>
+<div class="footer">
+<p>Fonte: Elaborado pela autora.</p>
+</div>
+</section><section id="rmarkdown-e-quarto" class="slide level2"><h2>RMarkdown e Quarto</h2>
+<ul>
+<li><p>O arquivo gerado é <strong>estático</strong>, não depende de uma sessão de R para ser aberto.</p></li>
+<li><p>Os elementos adicionados podem ter algum nível de interatividade (como mapas, gráficos, tabelas) utilizando bibliotecas em JavaScript.</p></li>
+<li><p>Facilita o uso para programação letrada.</p></li>
+</ul></section><section id="shiny" class="slide level2"><h2>Shiny</h2>
+<ul>
+<li><p>Shiny é um pacote em R para criar <strong>dashboards interativos</strong> com R.</p></li>
+<li><p>Melhor dos mundos para interatividade: podemos utilizar elementos que são interativos devido ao JS, e também podemos apresentar conteúdos interativos utilizando R.</p></li>
+<li><p>Necessita de uma sessão de R para que seja aberto!</p></li>
+<li><p>Não é focado em programação letrada.</p></li>
+<li><p>É possível fazer dashboards para usos científicos. Ex: Zootraits (<a href="https://ecofun.shinyapps.io/zootraits/">dashboard</a> e <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.11334">artigo</a>)</p></li>
+</ul>
+
+<img data-src="img/shiny.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"><div class="footer">
+<p>Fonte: <a href="https://rstudio.com/shiny/" class="uri">https://rstudio.com/shiny/</a></p>
+</div>
+</section><section id="shiny---servidor-e-interface-do-usuário" class="slide level2"><h2>Shiny - Servidor e Interface do Usuário</h2>
+
+<img data-src="img/esquema_ui_servidor.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"><div class="footer">
+<p>Fonte: <a href="https://curso-r.github.io/main-dashboards/slides/02-shiny-introducao.html" class="uri">https://curso-r.github.io/main-dashboards/slides/02-shiny-introducao.html</a></p>
+</div>
+</section><section id="qual-usar" class="slide level2"><h2>Qual usar?</h2>
+<ul>
+<li><p>Depende do objetivo, público-alvo, etc!</p></li>
+<li><p>A forma de programar nos dois é bem diferente.</p></li>
+<li><p>Existe algo no meio do caminho, que permite usar o shiny de forma simplificada: <a href="https://quarto.org/docs/dashboards/">Quarto Dashboards</a> e <a href="https://pkgs.rstudio.com/flexdashboard/">flexdashboard</a> (com RMarkdown)!</p></li>
+<li><p>Considero Quarto/RMarkdown mais fácil de aprender.</p></li>
+<li><p>Shiny “convencional” (quero dizer, sem flexdashboards) te dá muitas possibilidades, no longo prazo é interessante também :)</p></li>
+</ul></section></section><section><section id="primeiros-passos" class="title-slide slide level1 center"><h1>Primeiros passos</h1>
+<ul>
+<li><a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></li>
+</ul></section><section id="estrutura-de-um-arquivo-.qmd" class="slide level2"><h2>Estrutura de um arquivo <code>.qmd</code>
+</h2>
+<ul>
+<li><p>O arquivo <code>.qmd</code> é um arquivo de texto, que pode ser aberto em qualquer editor de texto (ex. RStudio, VS Code, bloco de notas, etc.).</p></li>
+<li><p>Nesse arquivo, temos a seção de metadados, onde definimos o título, autoria, data, tipo de arquivo gerado, etc.</p></li>
+<li><p>Depois, adicionamos o conteúdo, onde escrevemos o texto, inserimos os códigos, tabelas, gráficos, etc.</p></li>
+<li><p>Podemos configurar como queremos que os resultados apareçam no arquivo final: se queremos o código e o resultado, apenas o resultado, etc.</p></li>
+</ul></section><section id="criando-um-projeto-quarto-no-rstudio" class="slide level2"><h2>Criando um Projeto Quarto no RStudio</h2>
+
+<img data-src="img/rstudio-newproject.png" class="quarto-figure quarto-figure-center r-stretch"></section><section id="criando-um-projeto-quarto-no-rstudio-1" class="slide level2"><h2>Criando um Projeto Quarto no RStudio</h2>
+
+<img data-src="img/rstudio-create-quarto-project.png" class="quarto-figure quarto-figure-center r-stretch"></section><section id="criando-um-arquivo-quarto-no-rstudio" class="slide level2"><h2>Criando um arquivo Quarto no RStudio</h2>
+
+<img data-src="img/rstudio-newfile.png" class="quarto-figure quarto-figure-center r-stretch"></section><section id="criando-um-arquivo-quarto-no-rstudio-1" class="slide level2"><h2>Criando um arquivo Quarto no RStudio</h2>
+
+<img data-src="img/rstudio-quarto-project-created.png" class="quarto-figure quarto-figure-center r-stretch"></section><section id="campos-de-código---carregar-pacotes" class="slide level2"><h2>Campos de código - Carregar pacotes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href=""></a><span class="in">library(tidyverse)</span></span>
+<span id="cb1-3"><a href=""></a><span class="in">library(fs) # lidar com pastas </span></span>
+<span id="cb1-4"><a href=""></a><span class="in">library(flextable) # criar tabelas</span></span>
+<span id="cb1-5"><a href=""></a><span class="in">library(dados) # tem a base de pinguins</span></span>
+<span id="cb1-6"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="campos-de-código---importar-base-de-dados" class="slide level2"><h2>Campos de código - Importar base de dados</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href=""></a><span class="in"># Link da Base de dados</span></span>
+<span id="cb2-3"><a href=""></a><span class="in">url &lt;- "https://benubah.github.io/r-community-explorer/data/rladies.csv"</span></span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a><span class="in"># Criar pasta data</span></span>
+<span id="cb2-6"><a href=""></a><span class="in">dir_create("data")</span></span>
+<span id="cb2-7"><a href=""></a></span>
+<span id="cb2-8"><a href=""></a><span class="in"># Fazer o download do arquivo e salvar na pasta data</span></span>
+<span id="cb2-9"><a href=""></a><span class="in">download.file(url, "data/rladies.csv", method = "curl")</span></span>
+<span id="cb2-10"><a href=""></a></span>
+<span id="cb2-11"><a href=""></a><span class="in"># importar a base de dados baixada</span></span>
+<span id="cb2-12"><a href=""></a><span class="in">rladies &lt;- read_csv("data/rladies.csv")</span></span>
+<span id="cb2-13"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="campos-de-código---tabela" class="slide level2"><h2>Campos de código - Tabela</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href=""></a><span class="in">rladies |&gt; </span></span>
+<span id="cb3-3"><a href=""></a><span class="in">  group_by(region) |&gt;</span></span>
+<span id="cb3-4"><a href=""></a><span class="in">  summarise(</span></span>
+<span id="cb3-5"><a href=""></a><span class="in">    soma_membros = sum(members),</span></span>
+<span id="cb3-6"><a href=""></a><span class="in">    quantidade_capitulos = n()</span></span>
+<span id="cb3-7"><a href=""></a><span class="in">  ) |&gt; </span></span>
+<span id="cb3-8"><a href=""></a><span class="in">  arrange(desc(soma_membros)) |&gt; </span></span>
+<span id="cb3-9"><a href=""></a><span class="in">  flextable()</span></span>
+<span id="cb3-10"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="tabwid">
+<style>.cl-41a222ac{}.cl-419e90ec{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-41a0222c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-41a02236{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-41a02d1c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-41a02d26{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-41a02d27{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-41a02d30{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-41a02d31{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-41a02d32{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="cl-41a222ac">
+<thead><tr style="overflow-wrap:break-word;">
+<th class="cl-41a02d1c"><p class="cl-41a0222c"><span class="cl-419e90ec">region</span></p></th>
+<th class="cl-41a02d26"><p class="cl-41a02236"><span class="cl-419e90ec">soma_membros</span></p></th>
+<th class="cl-41a02d26"><p class="cl-41a02236"><span class="cl-419e90ec">quantidade_capitulos</span></p></th>
+</tr></thead>
+<tbody>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-41a02d27"><p class="cl-41a0222c"><span class="cl-419e90ec">US/Canada</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">30,112</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">59</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-41a02d27"><p class="cl-41a0222c"><span class="cl-419e90ec">Latin America</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">27,774</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">58</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-41a02d27"><p class="cl-41a0222c"><span class="cl-419e90ec">Europe</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">25,056</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">57</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-41a02d27"><p class="cl-41a0222c"><span class="cl-419e90ec">Asia</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">5,806</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">19</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-41a02d27"><p class="cl-41a0222c"><span class="cl-419e90ec">Africa</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">5,688</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">12</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-41a02d27"><p class="cl-41a0222c"><span class="cl-419e90ec">Australia</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">5,371</span></p></td>
+<td class="cl-41a02d30"><p class="cl-41a02236"><span class="cl-419e90ec">10</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-41a02d31"><p class="cl-41a0222c"><span class="cl-419e90ec">Pacific/Galapagos</span></p></td>
+<td class="cl-41a02d32"><p class="cl-41a02236"><span class="cl-419e90ec">460</span></p></td>
+<td class="cl-41a02d32"><p class="cl-41a02236"><span class="cl-419e90ec">1</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section><section id="campos-de-código---gráfico" class="slide level2"><h2>Campos de código - Gráfico</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb4-2"><a href=""></a><span class="in">grafico_latin_rladies &lt;- rladies |&gt; </span></span>
+<span id="cb4-3"><a href=""></a><span class="in">  filter(region == "Latin America") |&gt; </span></span>
+<span id="cb4-4"><a href=""></a><span class="in">  group_by(country) |&gt;</span></span>
+<span id="cb4-5"><a href=""></a><span class="in">  summarise(</span></span>
+<span id="cb4-6"><a href=""></a><span class="in">    soma_membros = sum(members),</span></span>
+<span id="cb4-7"><a href=""></a><span class="in">    quantidade_capitulos = n()</span></span>
+<span id="cb4-8"><a href=""></a><span class="in">  ) |&gt; </span></span>
+<span id="cb4-9"><a href=""></a><span class="in">  mutate(country = fct_reorder(country, soma_membros)) |&gt;</span></span>
+<span id="cb4-10"><a href=""></a><span class="in">  ggplot() +</span></span>
+<span id="cb4-11"><a href=""></a><span class="in">  geom_col(</span></span>
+<span id="cb4-12"><a href=""></a><span class="in">    aes(y = country, x = soma_membros)</span></span>
+<span id="cb4-13"><a href=""></a><span class="in">  ) +</span></span>
+<span id="cb4-14"><a href=""></a><span class="in">  theme_light() +</span></span>
+<span id="cb4-15"><a href=""></a><span class="in">  labs(</span></span>
+<span id="cb4-16"><a href=""></a><span class="in">    x = "Quantidade de membros",</span></span>
+<span id="cb4-17"><a href=""></a><span class="in">    y = "País",</span></span>
+<span id="cb4-18"><a href=""></a><span class="in">    title = "R-Ladies na América Latina",</span></span>
+<span id="cb4-19"><a href=""></a><span class="in">    subtitle = "Membros na plataforma Meetup [desatualizado]"</span></span>
+<span id="cb4-20"><a href=""></a><span class="in">  ) +</span></span>
+<span id="cb4-21"><a href=""></a><span class="in">  gghighlight::gghighlight(</span></span>
+<span id="cb4-22"><a href=""></a><span class="in">    country == "Brazil"</span></span>
+<span id="cb4-23"><a href=""></a><span class="in">  )</span></span>
+<span id="cb4-24"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="campos-de-código---gráfico-1" class="slide level2"><h2>Campos de código - Gráfico</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href=""></a><span class="in">#| fig.align: "center"</span></span>
+<span id="cb5-3"><a href=""></a><span class="in">grafico_latin_rladies</span></span>
+<span id="cb5-4"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="e-o-texto-com-os-resultados" class="slide level2"><h2>E o texto com os resultados?</h2>
+<div class="cell">
+<style type="text/css">
+.colorido{
+  background-color: #FDB525;
+}
+</style>
+</div>
+<ul>
+<li>Vamos ler esse trecho:</li>
+</ul>
+<p>A base de dados pinguins apresenta dados referente à 344 pinguins, das seguintes espécies: Pinguim-de-adélia, Pinguim-gentoo, e Pinguim-de-barbicha. Os dados foram coletados entre os anos 2007 e 2009, nas seguintes ilhas: Torgersen, Biscoe, e Dream. O peso médio dos pinguins amostrados foi de 42 kg. Os dados foram obtidos através do pacote <a href="https://cienciadedatos.github.io/dados/">dados</a>.</p>
+</section><section id="e-o-texto-com-os-resultados-1" class="slide level2"><h2>E o texto com os resultados?</h2>
+<ul>
+<li>Destacando os valores que podemos gerar com R:</li>
+</ul>
+<p>A base de dados pinguins apresenta dados referente à <span class="colorido">344</span> pinguins, das seguintes espécies: <span class="colorido">Pinguim-de-adélia, Pinguim-gentoo, e Pinguim-de-barbicha</span>. Os dados foram coletados entre os anos <span class="colorido">2007</span> e <span class="colorido">2009</span>, nas seguintes ilhas: <span class="colorido">Torgersen, Biscoe, e Dream</span>. O peso médio dos pinguins amostrados foi de <span class="colorido">42</span> kg. Os dados foram obtidos através do pacote <a href="https://cienciadedatos.github.io/dados/">dados</a>.</p>
+</section><section id="e-o-texto-com-os-resultados-2" class="slide level2"><h2>E o texto com os resultados?</h2>
+<ul>
+<li>O código por trás:</li>
+</ul>
+
+<img data-src="img/codigo-pinguins.png" class="quarto-figure quarto-figure-center r-stretch"></section><section id="outras-funcionalidades-interessantes-para-documentos-acadêmicos" class="slide level2"><h2>Outras funcionalidades interessantes para documentos acadêmicos</h2>
+<ul>
+<li><p>Adicionar equações com LaTeX</p></li>
+<li><p>Adicionar referências bibliográficas com Zotero (ou outro gerenciador de referências que gere um arquivo <code>.bib</code>)</p></li>
+<li><p>Gerar a lista de referências ao final do documento (a partir de um arquivo <code>.csl</code></p></li>
+<li><p>Facilidade para citar pacotes em R</p></li>
+<li><p>Referências cruzadas (capítulos, figuras, tabelas)</p></li>
+<li><p><a href="https://beatrizmilz.github.io/2023-curso-de-verao-ime-usp-relatorios/slides/05-elementos-acad.html#/">Leia sobre</a></p></li>
+</ul></section></section><section><section id="conclusão" class="title-slide slide level1 center"><h1>Conclusão</h1>
 
 </section><section id="para-aprender-mais-sobre-o-quarto" class="slide level2"><h2>Para aprender mais sobre o Quarto</h2>
 <ul>
